@@ -1,5 +1,6 @@
 import { Mail, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { RESUME } from '../data/assets';
 import SectionNumber from '../components/SectionNumber';
 import DotGrid from '../components/DotGrid';
 import ScrollReveal from '../components/ScrollReveal';
@@ -49,7 +50,7 @@ export default function Contact() {
               <Mail size={20} className="mr-2" />
               Say Hello
             </a>
-            <a href="/resume.pdf" className="btn-secondary text-lg px-9 py-5" download>
+            <a href={RESUME.pdfPath} className="btn-secondary text-lg px-9 py-5" download={RESUME.downloadName}>
               <Download size={20} className="mr-2" />
               Download Resume
             </a>

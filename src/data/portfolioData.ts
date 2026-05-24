@@ -1,3 +1,5 @@
+import { PROJECTS } from './assets';
+
 export const personalInfo = {
   name: "Kirti Mahapatra",
   firstName: "Kirti",
@@ -75,7 +77,7 @@ export const projects = [
       github: "https://github.com/kirti-007",
       live: null,
     },
-    image: "/images/project-1.jpg",
+    image: PROJECTS.globalAlloyEcosystem.image,
   },
   {
     year: "2024",
@@ -88,7 +90,7 @@ export const projects = [
       github: "https://github.com/kirti-007",
       live: null,
     },
-    image: "/images/project-2.jpg",
+    image: PROJECTS.collabNote.image,
   },
   {
     year: "2024",
@@ -101,7 +103,7 @@ export const projects = [
       github: "https://github.com/kirti-007",
       live: null,
     },
-    image: "/images/project-3.jpg",
+    image: PROJECTS.snapLink.image,
   },
 ];
 

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { RESUME } from '../data/assets';
 import SystemAnnotation from '../components/SystemAnnotation';
 import SectionNumber from '../components/SectionNumber';
 import DotGrid from '../components/DotGrid';
@@ -69,7 +70,7 @@ export default function Hero() {
               View My Work
               <ArrowRight size={16} className="ml-2" />
             </a>
-            <a href="/resume.pdf" className="btn-secondary" download>
+            <a href={RESUME.pdfPath} className="btn-secondary" download={RESUME.downloadName}>
               <Download size={16} className="mr-2" />
               Download Resume
             </a>
