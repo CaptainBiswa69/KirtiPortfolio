@@ -4,16 +4,33 @@
 // Update paths once — changes apply everywhere.
 // =============================================================================
 
+// IMPORTANT: This must match the repo name on GitHub Pages.
+// If your repo is "KirtiPortfolio", use: '/KirtiPortfolio/'
+// If your repo is "username.github.io", use: '/'
+export const BASE_PATH = '/KirtiPortfolio';
+
+/**
+ * Prepends the GitHub Pages base path to any asset path.
+ * Use this for ALL images, PDFs, and other static assets.
+ *
+ * Examples:
+ *   getAssetPath('/images/hero.jpg')  → '/KirtiPortfolio/images/hero.jpg'
+ *   getAssetPath('/resume.pdf')       → '/KirtiPortfolio/resume.pdf'
+ */
+export function getAssetPath(path: string): string {
+  // Remove leading slash if present to avoid double slashes
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${BASE_PATH}${cleanPath}`;
+}
+
 // ---------------------------------------------------------------------------
 // HERO SECTION
 // ---------------------------------------------------------------------------
 export const HERO = {
   // Portrait / Avatar used in the Hero section
-  // Place a 3:4 ratio portrait photo (min 800px wide) at /public/images/hero-portrait.jpg
-  // If no photo yet, a gradient placeholder with initials will be shown.
-  portrait: '/images/hero-portrait.JPG',
+  portrait: getAssetPath('/images/hero-portrait.JPG'),
 
-  // Fallback gradient colors for the portrait placeholder (used if photo doesn't exist)
+  // Fallback gradient colors for the portrait placeholder
   portraitPlaceholderColors: {
     from: 'rgba(212, 132, 154, 0.1)',
     to: 'rgba(155, 142, 199, 0.1)',
@@ -22,33 +39,26 @@ export const HERO = {
 
 // ---------------------------------------------------------------------------
 // PROJECTS SECTION
-// Place screenshots (16:9 or 4:3 ratio, min 600px wide) in /public/images/
 // ---------------------------------------------------------------------------
 export const PROJECTS = {
   globalAlloyEcosystem: {
-    // Screenshot or mockup of the Global Alloy Ecosystem project
-    image: '/images/project-alloy-ecosystem.jpg',
-    // GitHub repo link
+    image: getAssetPath('/images/project-alloy-ecosystem.jpg'),
     github: 'https://github.com/kirti-007',
-    // Live demo URL (set to null if not deployed yet)
     live: null,
   },
 
   collabNote: {
-    // Screenshot or mockup of CollabNote
-    image: '/images/project-collabnote.png',
+    image: getAssetPath('/images/project-collabnote.png'),
     github: 'https://github.com/kirti-007',
     live: null,
   },
 
   snapLink: {
-    // Screenshot or mockup of SnapLink
-    image: '/images/project-snaplink.png',
+    image: getAssetPath('/images/project-snaplink.png'),
     github: 'https://github.com/kirti-007',
     live: null,
   },
 
-  // Placeholder colors used when no image is available
   placeholderColors: [
     { from: 'rgba(212, 132, 154, 0.15)', to: 'rgba(155, 142, 199, 0.15)' },
     { from: 'rgba(155, 142, 199, 0.15)', to: 'rgba(212, 132, 154, 0.15)' },
@@ -60,8 +70,6 @@ export const PROJECTS = {
 // TESTIMONIALS SECTION
 // ---------------------------------------------------------------------------
 export const TESTIMONIALS = {
-  // Optional: Add author photos if you have them
-  // path: '/images/testimonial-author-1.jpg',
   useAuthorPhotos: false,
 };
 
@@ -69,18 +77,14 @@ export const TESTIMONIALS = {
 // ABOUT SECTION
 // ---------------------------------------------------------------------------
 export const ABOUT = {
-  // Optional: A different photo for the About section
-  // If null, no extra photo is shown (stats grid takes the space)
-  portrait: null, // '/images/about-portrait.jpg',
+  portrait: null, // getAssetPath('/images/about-portrait.jpg'),
 };
 
 // ---------------------------------------------------------------------------
 // RESUME
 // ---------------------------------------------------------------------------
 export const RESUME = {
-  // Path to the PDF resume inside /public/
-  pdfPath: '/resume.pdf',
-  // Display filename when downloaded
+  pdfPath: getAssetPath('/resume.pdf'),
   downloadName: 'Kirti_Mahapatra_Resume.pdf',
 };
 
@@ -88,26 +92,21 @@ export const RESUME = {
 // FAVICON & BRANDING
 // ---------------------------------------------------------------------------
 export const BRANDING = {
-  // SVG favicon path
-  favicon: '/favicon.svg',
-  // Site title (used in index.html <title>)
+  favicon: getAssetPath('/favicon.svg'),
   siteTitle: 'Kirti Mahapatra | Software Development Engineer',
-  // Meta description
   metaDescription:
     'Kirti Mahapatra — Software Development Engineer. M.Tech IIT Bhilai. Building systems that scale.',
-  // Theme color (for mobile browser chrome)
   themeColor: '#0F0E13',
 };
 
 // ---------------------------------------------------------------------------
 // SOCIAL LINKS & ICONS
-// External profile URLs and their display names
 // ---------------------------------------------------------------------------
 export const SOCIALS = {
   github: {
     url: 'https://github.com/kirti-007',
     label: 'GitHub',
-    icon: 'Github', // Lucide icon name
+    icon: 'Github',
   },
   linkedin: {
     url: 'https://linkedin.com/in/kirti-mahapatra-1020a520b/',
@@ -130,33 +129,25 @@ export const SOCIALS = {
 // NOISE TEXTURE
 // ---------------------------------------------------------------------------
 export const TEXTURES = {
-  // The noise overlay is an inline SVG in CSS (no external file needed).
-  // If you want to replace it with a real PNG, put the file in /public/
-  // and update the path in index.css.
-  noiseOverlay: null, // '/images/noise.png',
+  noiseOverlay: null,
 };
 
 // ---------------------------------------------------------------------------
 // BOOT SEQUENCE
 // ---------------------------------------------------------------------------
 export const BOOT = {
-  // The "K" logo is drawn inline via SVG.
-  // If you want a custom SVG logo, place it at /public/images/logo.svg
-  // and set customLogo to that path.
-  customLogo: null, // '/images/logo.svg',
-  // Colors for the boot animation
+  customLogo: null,
   strokeColor: '#F5F0EB',
   fillColor: '#D4849A',
 };
 
 // ---------------------------------------------------------------------------
 // FOOTER AURORA
-// Canvas particle animation colors
 // ---------------------------------------------------------------------------
 export const FOOTER = {
   auroraColors: {
-    start: 'rgba(212, 132, 154, ', // Rose base
-    mid: 'rgba(155, 142, 199, ',   // Lavender mid
+    start: 'rgba(212, 132, 154, ',
+    mid: 'rgba(155, 142, 199, ',
   },
 };
 
@@ -175,9 +166,7 @@ export const FOOTER = {
 */
 
 // =============================================================================
-// HELPER: Check if an image exists (for conditional rendering)
-// Usage: import { imageExists } from './assets';
-//        const hasPhoto = await imageExists(HERO.portrait);
+// HELPER: Check if an image exists
 // =============================================================================
 export async function imageExists(src: string): Promise<boolean> {
   return new Promise((resolve) => {
