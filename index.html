@@ -14,7 +14,23 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading state shown before React mounts -->
+      <div id="loading-fallback" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #0F0E13; color: #F5F0EB; font-family: 'JetBrains Mono', monospace;">
+        <div style="text-align: center;">
+          <div style="font-size: 48px; font-weight: 700; background: linear-gradient(135deg, #D4849A, #9B8EC7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px;">K</div>
+          <p style="color: #A8A3B3; font-size: 14px;">// loading portfolio...</p>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #0F0E13; color: #F5F0EB; font-family: 'JetBrains Mono', monospace; padding: 2rem; text-align: center;">
+        <div>
+          <h1 style="color: #D4849A; margin-bottom: 1rem;">// JavaScript required</h1>
+          <p style="color: #A8A3B3;">This portfolio requires JavaScript to display. Please enable JavaScript in your browser settings.</p>
+        </div>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

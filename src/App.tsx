@@ -3,6 +3,7 @@ import BootSequence from './components/BootSequence';
 import CustomCursor from './components/CustomCursor';
 import Navigation from './components/Navigation';
 import KeyboardShortcuts from './components/KeyboardShortcuts';
+import ErrorBoundary from './components/ErrorBoundary';
 import Hero from './sections/Hero';
 import Value from './sections/Value';
 import About from './sections/About';
@@ -22,6 +23,13 @@ function App() {
     setBootComplete(true);
   }, []);
 
+  // Clear loading fallback when React mounts
+  useEffect(() => {
+    const fallback = document.getElementById('loading-fallback');
+    if (fallback) fallback.remove();
+    console.log('%c Kirti Portfolio loaded ', 'background: #D4849A; color: #0F0E13; padding: 4px 8px; border-radius: 4px;');
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === '?' && !e.ctrlKey && !e.metaKey && !e.altKey) {
@@ -34,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ErrorBoundary>
       <BootSequence onComplete={handleBootComplete} />
       <CustomCursor />
       <a href="#main-content" className="skip-link">
@@ -59,7 +67,7 @@ function App() {
       
       {/* Noise overlay */}
       <div className="noise-overlay" aria-hidden="true" />
-    </>
+    </ErrorBoundary>
   );
 }
 
