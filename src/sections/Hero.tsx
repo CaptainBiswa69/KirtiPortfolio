@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import { RESUME } from '../data/assets';
+import { HERO, RESUME } from '../data/assets';
 import SystemAnnotation from '../components/SystemAnnotation';
 import SectionNumber from '../components/SectionNumber';
 import DotGrid from '../components/DotGrid';
@@ -94,17 +94,15 @@ export default function Hero() {
             />
             <div
               className="relative w-[280px] md:w-[340px] lg:w-[380px] aspect-[3/4] rounded-lg overflow-hidden border border-rose-muted"
-              style={{
-                background: 'linear-gradient(135deg, rgba(212,132,154,0.1), rgba(155,142,199,0.1))',
-              }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-display text-6xl font-bold text-text-tertiary opacity-20">
-                  KM
-                </span>
-              </div>
-              {/* Photo placeholder - will be replaced with real image */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-midnight/50" />
+              <img
+                src={HERO.portrait}
+                alt="Kirti Mahapatra"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+              />
+              {/* Bottom fade for readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-midnight/40 pointer-events-none" />
             </div>
           </div>
         </motion.div>

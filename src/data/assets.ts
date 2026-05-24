@@ -11,7 +11,7 @@ export const HERO = {
   // Portrait / Avatar used in the Hero section
   // Place a 3:4 ratio portrait photo (min 800px wide) at /public/images/hero-portrait.jpg
   // If no photo yet, a gradient placeholder with initials will be shown.
-  portrait: '/images/hero-portrait.jpg',
+  portrait: '/images/hero-portrait.JPG',
 
   // Fallback gradient colors for the portrait placeholder (used if photo doesn't exist)
   portraitPlaceholderColors: {
@@ -36,14 +36,14 @@ export const PROJECTS = {
 
   collabNote: {
     // Screenshot or mockup of CollabNote
-    image: '/images/project-collabnote.jpg',
+    image: '/images/project-collabnote.png',
     github: 'https://github.com/kirti-007',
     live: null,
   },
 
   snapLink: {
     // Screenshot or mockup of SnapLink
-    image: '/images/project-snaplink.jpg',
+    image: '/images/project-snaplink.png',
     github: 'https://github.com/kirti-007',
     live: null,
   },
@@ -166,8 +166,8 @@ export const FOOTER = {
 /*
 □ /public/images/hero-portrait.jpg          — Your portrait (3:4, min 800px)
 □ /public/images/project-alloy-ecosystem.jpg — Screenshot of Global Alloy project
-□ /public/images/project-collabnote.jpg      — Screenshot of CollabNote project
-□ /public/images/project-snaplink.jpg          — Screenshot of SnapLink project
+□ /public/images/project-collabnote.png     — Screenshot of CollabNote project
+□ /public/images/project-snaplink.png          — Screenshot of SnapLink project
 □ /public/images/testimonial-author-1.jpg    — Optional: testimonial author photo
 □ /public/images/testimonial-author-2.jpg    — Optional: testimonial author photo
 □ /public/images/about-portrait.jpg          — Optional: different photo for About section
