@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: #0F0E13;
+    --color-bg-secondary: #16141F;
+    --color-bg-elevated: #1E1C27;
+    --color-text-primary: #F5F0EB;
+    --color-text-secondary: #A8A3B3;
+    --color-text-tertiary: #6B6577;
+    --color-accent-rose: #D4849A;
+    --color-accent-rose-glow: #E8A5B8;
+    --color-accent-lavender: #9B8EC7;
+    --color-accent-lavender-glow: #B8ABE0;
+    --color-accent-gold: #D4AF87;
+    --color-success: #8FBC8F;
+    --color-error: #D48484;
+    --color-border: rgba(212, 132, 154, 0.12);
+    --color-border-hover: rgba(212, 132, 154, 0.25);
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Crimson Text', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+
+  body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(212, 132, 154, 0.3);
+    color: var(--color-text-primary);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-text-tertiary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-secondary);
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 12px 24px;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: top 0.3s ease;
+  }
+
+  .skip-link:focus {
+    top: 16px;
+    outline: 2px solid var(--color-accent-rose);
+    outline-offset: 2px;
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  .section-container {
+    @apply max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #D4849A 0%, #9B8EC7 50%, #D4AF87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded font-mono text-sm transition-all duration-200;
+    background-color: var(--color-accent-rose);
+    color: var(--color-bg-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-rose-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(212, 132, 154, 0.3);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded font-mono text-sm transition-all duration-200 border;
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-accent-rose);
+    color: var(--color-accent-rose);
+    transform: translateY(-2px);
+  }
+
+  .card {
+    @apply rounded-lg p-8 transition-all duration-300;
+    background-color: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+  }
+
+  .card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(212, 132, 154, 0.08);
+  }
+
+  .tag {
+    @apply inline-flex px-3 py-1 rounded font-mono text-2xs transition-all duration-200;
+    background-color: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .tag:hover {
+    border-color: var(--color-accent-rose);
+    color: var(--color-accent-rose);
+  }
+}
+
+@layer utilities {
+  .font-variant-numeric {
+    font-variant-numeric: tabular-nums;
+  }
+}
