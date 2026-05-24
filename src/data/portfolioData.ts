@@ -157,14 +157,14 @@ export const testimonials = [
   {
     quote:
       "Kirti rebuilt our entire frontend with remarkable speed and precision. Her Lighthouse score improvements and component library work saved us countless hours per sprint.",
-    author: "[To be provided]",
-    role: "[Title/Relationship]",
+    author: "Gupil Kapoor",
+    role: "Founder at Bottomstreet",
   },
   {
     quote:
       "Her ability to dive deep into network science while delivering production-ready code is rare. Kirti combines academic rigor with engineering pragmatism beautifully.",
-    author: "[To be provided]",
-    role: "[Title/Relationship]",
+    author: "Komal",
+    role: "Classmate at IIT Bhilai",
   },
 ];
 
