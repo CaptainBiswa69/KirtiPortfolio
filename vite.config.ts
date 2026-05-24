@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react-swc'
 // If your repo is "kirti-portfolio", use: base: '/kirti-portfolio/'
 // If your repo is "username.github.io", use: base: '/'
 // Or use './' for relative paths (works everywhere but URLs are less clean)
-const BASE_PATH = process.env.GH_PAGES_BASE || '/kirti-portfolio/';
+const BASE_PATH = process.env.GH_PAGES_BASE || '/KirtiPortfolio/';
 
 export default defineConfig({
   plugins: [react()],
